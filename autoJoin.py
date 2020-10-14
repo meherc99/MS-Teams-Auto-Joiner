@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from datetime import datetime
 import json
@@ -25,7 +25,12 @@ opt.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.notifications": 1 
 })
 
-browser = webdriver.Chrome(ChromeDriverManager().install(),options=opt)
+driver_path = '/home/meher/Documents/Selenium Webdrivers/chromedriver_linux64/chromedriver'
+opts.binary_location = '/usr/bin/brave-browser'
+
+browser = webdriver.Chrome(options = options, executable_path = driver_path)
+
+# browser = webdriver.Chrome(ChromeDriverManager().install(),options=opt)
 
 def wait_and_find_ele_by_id(id, timeout=timeOutDelay):
     sleep(sleepDelay)
